@@ -21,6 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
+        'picture',
+        'biography',
+        'type',
+        'blocked',
+        'direct_publish'
     ];
 
     /**
@@ -41,4 +47,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function authorType() {
+        return $this->belongsTo(Type::class, 'type', 'id');
+    }
+
+    public function getPictureAttribute($value) {
+        if($value) {
+            return asset('back/dist/img/authors/' . $value);
+        } else {
+            return asset('back/dist/img/authors/default-img.png');
+        }
+    }
 }
