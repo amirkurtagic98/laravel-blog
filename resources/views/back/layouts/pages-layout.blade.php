@@ -16,6 +16,7 @@
         <title>@yield('pageTitle')</title>
         <!-- CSS files -->
         <base href="/">
+        <link rel="shortcut icon" href="{{ \App\Models\Setting::find(1)->blog_favicon }}" type="image/x-icon">
         <link href="./back/dist/css/tabler.min.css?1684106062" rel="stylesheet"/>
         <link href="./back/dist/css/tabler-flags.min.css?1684106062" rel="stylesheet"/>
         <link href="./back/dist/css/tabler-payments.min.css?1684106062" rel="stylesheet"/>
@@ -32,6 +33,9 @@
             }
             body {
                 font-feature-settings: "cv03", "cv04", "cv11";
+            }
+            .swal2-popup {
+                font-size: .85rem;
             }
         </style>
     </head>
@@ -1527,6 +1531,7 @@
         <script src="{{ asset('back/dist/libs/jquery/jquery-3.6.0.min.js') }}"></script>
         <script src="{{ asset('back/dist/libs/ijabo/ijabo.min.js') }}"></script>
         <script src="{{ asset('back/dist/libs/ijaboCropTool/ijaboCropTool.min.js') }}"></script>
+        <script src="{{ asset('back/dist/libs/ijaboViewer/jquery.ijaboViewer.min.js') }}"></script>
         <script src="./back/dist/libs/apexcharts/dist/apexcharts.min.js?1684106062" defer></script>
         <script src="./back/dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1684106062" defer></script>
         <script src="./back/dist/libs/jsvectormap/dist/maps/world.js?1684106062" defer></script>
