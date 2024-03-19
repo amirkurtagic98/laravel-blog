@@ -131,14 +131,14 @@
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./" >
-                                <span class="nav-link-title">
-                                    Menus & Categories
-                                </span>
-                            </a>
-                        </li>
                         @if(auth()->user()->type == 1)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('author.categories') }}" >
+                                    <span class="nav-link-title">
+                                        Categories
+                                    </span>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('author.authors') }}" >
                                     <span class="nav-link-title">
@@ -154,26 +154,28 @@
                                 </span>
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="./empty.html">
+                                <a class="dropdown-item" href="{{ route('author.posts.add-post') }}">
                                     Add New
                                 </a>
-                                <a class="dropdown-item" href="./cookie-banner.html">
+                                <a class="dropdown-item" href="{{ route('author.posts.all-posts') }}">
                                     All Posts
                                 </a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-                                <span class="nav-link-title">
-                                    Settings
-                                </span>
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('author.settings') }}">
-                                    General Settings
+                        @if(auth()->user()->type == 1)
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
+                                    <span class="nav-link-title">
+                                        Settings
+                                    </span>
                                 </a>
-                            </div>
-                        </li>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ route('author.settings') }}">
+                                        General Settings
+                                    </a>
+                                </div>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>

@@ -19,5 +19,14 @@ Route::prefix('author')->name('author.')->group(function () {
         Route::post('/change-blog-logo', [AuthorController::class, 'changeBlogLogo'])->name('change-blog-logo');
         Route::post('/change-blog-favicon', [AuthorController::class, 'changeBlogFavicon'])->name('change-blog-favicon');
         Route::view('/authors', 'back.pages.authors')->name('authors');
+        Route::view('/categories', 'back.pages.categories')->name('categories');
+
+        Route::prefix('posts')->name('posts.')->group(function() {
+            Route::view('/add-post', 'back.pages.add-post')->name('add-post');
+            Route::post('/create', [AuthorController::class, 'createPost'])->name('create');
+            Route::view('/all-posts', 'back.pages.all-posts')->name('all-posts');
+            Route::get('/edit-post', [AuthorController::class, 'editPost'])->name('edit-post');
+            Route::post('/update-post', [AuthorController::class, 'updatePost'])->name('update-post');
+        });
     });
 });
