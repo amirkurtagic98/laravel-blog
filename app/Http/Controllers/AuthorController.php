@@ -138,6 +138,7 @@ class AuthorController extends Controller
                 //$post->post_slug = Str::slug($request->post_title);
                 $post->post_content = $request->post_content;
                 $post->featured_image = $new_filename;
+                $post->post_tags = $request->post_tags;
                 $saved = $post->save();
 
                 if($saved) {
@@ -215,6 +216,7 @@ class AuthorController extends Controller
                 $post->post_slug = null;
                 $post->post_content = $request->post_content;
                 $post->featured_image = $new_filename;
+                $post->post_tags = $request->post_tags;
                 $saved = $post->save();
 
                 if($saved) {
@@ -237,6 +239,7 @@ class AuthorController extends Controller
             $post->post_slug = null;
             $post->post_content = $request->post_content;
             $post->post_title = $request->post_title;
+            $post->post_tags = $request->post_tags;
             $saved = $post->save();
 
             if($saved) {

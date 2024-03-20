@@ -35,4 +35,12 @@ class Post extends Model
             $query->where('post_title', 'like', $term);
         });
     }
+
+    public function subcategory() {
+        return $this->belongsTo(Subcategory::class, 'category_id', 'id');
+    }
+
+    public function author() {
+        return $this->belongsTo(User::class, 'author_id', 'id');
+    }
 }
